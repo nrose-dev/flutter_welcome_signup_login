@@ -1,3 +1,4 @@
+import 'package:fancy_snackbar/fancy_snackbar.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/flutter_svg.dart';
@@ -99,7 +100,27 @@ class LoginScreen extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(50),
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            login(context);
+                            /*final snackBar = SnackBar(
+                              /// need to set following properties for best effect of awesome_snackbar_content
+                              elevation: 0,
+                              behavior: SnackBarBehavior.floating,
+                              backgroundColor: Colors.transparent,
+                              content: AwesomeSnackbarContent(
+                                title: 'On Snap!',
+                                message:'This is an example error message that will be shown in the body of snackbar!',
+
+                                /// change contentType to ContentType.success, ContentType.warning or ContentType.help for variants
+                                contentType: ContentType.help,
+                              ),
+                            );
+
+                            ScaffoldMessenger.of(context)
+                              ..hideCurrentSnackBar()
+                              ..showSnackBar(snackBar);*/
+
+                          },
                           style: ButtonStyle(backgroundColor: MaterialStateProperty.all(primaryColor)),
                           child: Text(
                             "Login".toUpperCase(),
@@ -163,4 +184,16 @@ class LoginScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+login (context){
+
+  FancySnackbar.showSnackbar(
+    context,
+    snackBarType: FancySnackBarType.error,
+    title: "Whoops",
+    message: "Invalid email! Enter a valid email and try again. \nThank you ",
+    duration: 2,
+    onCloseEvent: () {},
+  );
 }
