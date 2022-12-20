@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_welcome_signup_login/Screens/signup_screen.dart';
 import 'package:flutter_welcome_signup_login/constants.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -32,24 +33,6 @@ class LoginScreen extends StatelessWidget {
                 width: size.width * 0.3,
               )
             ),
-            Positioned(
-              top: 35,
-              left: 10,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(50),
-                child: TextButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(primaryLightColor),
-                  ),
-                  onPressed: () { Navigator.pop(context); },
-                  child: const SizedBox(
-                    width: 50,
-                    height: 50,
-                    child: Icon(Icons.arrow_back, color: primaryColor,),
-                  )
-                ),
-              ),
-            ),
             SafeArea(
               child: SingleChildScrollView(
                 child: Column(
@@ -59,12 +42,12 @@ class LoginScreen extends StatelessWidget {
                       "Login".toUpperCase(),
                       style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                     ),
-                    const SizedBox(height: 25,),
+                    SizedBox(width: size.width * 1,height: 25),
                     SvgPicture.asset(
                       "assets/icons/login.svg",
                       height: size.height * 0.37,
                     ),
-                    const SizedBox(height: 10,),
+                    SizedBox(width: size.width * 1,height: 10),
                     SizedBox(
                       width: size.width * 0.8,
                       child: Column(
@@ -77,7 +60,7 @@ class LoginScreen extends StatelessWidget {
                             ),
                             child: const TextField(
                               decoration: InputDecoration(
-                                icon: Icon(Icons.person, color: primaryColor,),
+                                icon: Icon(Icons.email, color: primaryColor,),
                                 hintText: "Your Email",
                                 border: InputBorder.none,
                               ),
@@ -109,7 +92,7 @@ class LoginScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 30,),
+                    SizedBox(width: size.width * 1,height: 30),
                     SizedBox(
                       width: size.width * 0.8,
                       height: 50,
@@ -130,12 +113,23 @@ class LoginScreen extends StatelessWidget {
                       width: size.width * 0.8,
                       height: 50,
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           const Text("Don't have an Account?"),
-                          TextButton(
-                              onPressed: () {},
+                          GestureDetector(
+                              onTap: (){
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context){
+                                          return const SignupScreen();
+                                        }
+                                    )
+                                );
+                              },
                               child: const Text(
-                                  "Sign Up"
+                                " Signup",
+                                style: TextStyle(color: primaryColor, fontWeight: FontWeight.bold),
                               )
                           )
                         ],
@@ -145,6 +139,24 @@ class LoginScreen extends StatelessWidget {
                 ),
               )
 
+            ),
+            Positioned(
+              top: 35,
+              left: 10,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(50),
+                child: TextButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(primaryLightColor),
+                    ),
+                    onPressed: () { Navigator.pop(context); },
+                    child: const SizedBox(
+                      width: 50,
+                      height: 50,
+                      child: Icon(Icons.arrow_back, color: primaryColor,),
+                    )
+                ),
+              ),
             ),
           ],
         ),
