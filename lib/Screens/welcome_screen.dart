@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_welcome_signup_login/Screens/login_screen.dart';
+import 'package:flutter_welcome_signup_login/Screens/signup_screen.dart';
 import 'package:flutter_welcome_signup_login/constants.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -71,14 +72,23 @@ class WelcomeScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 10,),
+                    SizedBox(width: size.width * 1,height: 10),
                     SizedBox(
                       width: size.width * 0.8,
                       height: 50,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(50),
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context){
+                                  return const SignupScreen();
+                                }
+                              )
+                            );
+                          },
                           style: ButtonStyle(backgroundColor: MaterialStateProperty.all(primaryLightColor)),
                           child: Text(
                             "Signup".toUpperCase(),
