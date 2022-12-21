@@ -27,12 +27,13 @@ class LoginScreen extends StatelessWidget {
                   width: size.width * 0.3,
                 )),
             Positioned(
-                bottom: 0,
-                right: 0,
-                child: Image.asset(
-                  "assets/images/login_bottom.png",
-                  width: size.width * 0.3,
-                )),
+              bottom: 0,
+              right: 0,
+              child: Image.asset(
+                "assets/images/login_bottom.png",
+                width: size.width * 0.3,
+              )
+            ),
             SafeArea(
                 child: SingleChildScrollView(
               child: Column(

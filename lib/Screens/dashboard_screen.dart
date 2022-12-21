@@ -17,56 +17,79 @@ class _DashboardScreenState extends State<DashboardScreen> {
         width: double.infinity,
         padding: const EdgeInsets.all(20),
         color: Colors.white,
-        alignment: Alignment.center,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(
-              height: 50,
+            Positioned(
+              top: 0,
+              left: 0,
+              width: double.infinity,
+              height: size.width * 1,
+              child: Image.asset(
+                "assets/images/bg.png"
+              ),
             ),
-            Row(
-              children: [
-                Container(
-                  alignment: Alignment.center,
-                  height: 100,
-                  width: 100,
-                  //padding: const EdgeInsets.symmetric(horizontal: 1),
-                  decoration: BoxDecoration(
-                    color: primaryColor,
-                    borderRadius: BorderRadius.circular(100),
-                  ),
-                  child: const Icon(
-                    Icons.person,
-                    size: 80,
-                    color: Colors.white,
-                  ),
+            SafeArea(
+              child: Column(
+                children: [
+
+                    const SizedBox(
+                      height: 25,
+                    ),
+                    Text(
+                      "Dashboard",
+                      style: TextStyle(fontWeight: FontWeight.bold, color: primaryColor, fontSize: 30),
+                    ),
+                    const SizedBox(
+                      height: 25,
+                    ),
+                    Row(
+                      children: [
+                        Container(
+                          height: 80,
+                          width: 80,
+                          //padding: const EdgeInsets.symmetric(horizontal: 1),
+                          decoration: BoxDecoration(
+                            color: primaryColor,
+                            borderRadius: BorderRadius.circular(100),
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.asset(
+                              "assets/images/user.png",
+                              width: size.width * 1,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Container(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: const [
+                              Text(
+                                'Md Nahid Hossen Golap',
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: primaryColor),
+                              ),
+                              Text(
+                                'nahid@nrose.io',
+                                textAlign: TextAlign.left,
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Container(
-                  alignment: Alignment.topLeft,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      Text(
-                        'Md Nahid Hossen Golap',
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: primaryColor),
-                      ),
-                      Text(
-                        'nahid@nrose.io',
-                        textAlign: TextAlign.left,
-                      )
-                    ],
-                  ),
-                ),
-              ],
+              ),
+                ],
+              ),
             ),
-          ],
-        ),
-      ),
     );
   }
 }
